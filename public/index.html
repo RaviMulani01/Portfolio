@@ -660,13 +660,21 @@
           </p>
 
           <script>
+            function isValidEmail(email) {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return emailRegex.test(email);
+            }
+
             function submitForm() {
               // Validate all required fields here
               var message = document.getElementById("message").value;
               var email = document.getElementById("email").value;
 
               // Add any additional validation for other fields here
-
+              if (!isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return;
+              }
               if (message.trim() === "" || email.trim() === "") {
                 alert("Please fill in all required fields.");
                 return;
