@@ -80,7 +80,7 @@
 
               <!-- Add a button to download your resume -->
               <a
-                href="./Resume/Ravi_Mulani_Resume.pdf"
+                href="./Resume/RAVI_MUANI_RESUME.pdf"
                 download="Ravi Mulani Resume.pdf"
                 class="inline-block text-white bg-indigo-500 border-0 py-2 px-6 mt-4 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               >
@@ -667,18 +667,20 @@
 
               // Add any additional validation for other fields here
 
-              if (message.trim() === "") {
-                alert("Please fill in all required fields.");
-                return;
-              }
-
-              if (email.trim() === "") {
+              if (message.trim() === "" || email.trim() === "") {
                 alert("Please fill in all required fields.");
                 return;
               }
 
               // If all required fields are filled, show the thank you message
               toggleThankYouMessage();
+              document.getElementById("email").value = "";
+              document.getElementById("message").value = "";
+
+              // Reset the form after 5 seconds
+              setTimeout(function () {
+                toggleThankYouMessage();
+              }, 5000);
             }
 
             function toggleThankYouMessage() {
